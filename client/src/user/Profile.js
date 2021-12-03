@@ -1,5 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, Container, Paper, Typography } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  Paper,
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogActions,
+} from "@material-ui/core";
 import waldo from "./../assets/waldo.jpg";
 import React, { useEffect, useState } from "react";
 import auth from "./../auth/auth-helper";
@@ -7,6 +15,7 @@ import { Link } from "react-router-dom";
 import { read } from "./api-user";
 
 function Profile({ match }) {
+  const [open, setOpen] = useState(false);
   const [values, setValues] = useState({
     name: "",
   });
@@ -46,18 +55,25 @@ function Profile({ match }) {
           alt={"Waldo"}
         />
       </Paper>
+
       <Button
         style={{ marginLeft: "45%", marginTop: "5%" }}
-        component={Link}
-        to={"/"}
         color="primary"
         onClick={() => {
-          alert("You've been logged out");
           auth.clearJWT();
+          setOpen(true);
         }}
       >
         Logout
       </Button>
+      <Dialog open={open}>
+        <DialogTitle>You've been logged out!</DialogTitle>
+        <DialogActions>
+          <Button component={Link} to={"/"}>
+            Confirm
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }

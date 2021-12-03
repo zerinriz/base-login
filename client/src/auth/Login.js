@@ -46,7 +46,7 @@ const Login = () => {
     return <Redirect to={"/user/" + auth.isAuthenticated().user._id} />;
   }
   return (
-    <Container maxWidth="sm" style={{ marginTop: "25%" }}>
+    <Container maxWidth="sm" style={{ marginTop: "10%" }}>
       <Card align="center" style={{ backgroundColor: "#F5E3D2" }}>
         <CardContent>
           <Typography align="center" variant="h6">

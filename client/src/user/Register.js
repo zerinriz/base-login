@@ -57,7 +57,7 @@ const Register = () => {
   };
 
   return (
-    <Container maxWidth="sm" style={{ marginTop: "25%" }}>
+    <Container maxWidth="sm" style={{ marginTop: "10%" }}>
       <Card align="center" style={{ backgroundColor: "#F5E3D2" }}>
         <CardContent>
           <Typography variant="h6">Sign Up</Typography>
